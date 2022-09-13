@@ -1,0 +1,17 @@
+ALGORITHM distinctElementsSum1
+VAR
+    sum,i,j:INTEGER:=0;
+    set1,set2: ARRAY_OF_INTEGER[50];
+BEGIN
+    set1=[3, 1, 7, 9];
+    set2=[2, 4, 1, 9, 3];
+    FOR i FROM 0 TO set1.length STEP 1  DO
+        FOR j FROM 0 TO set2.length STEP 1 DO
+            IF (set1[i] = set2[j]) THEN
+                sum := sum+set2[j];
+                break;
+            END_IF 
+        END_FOR
+        
+    END_FOR
+END
