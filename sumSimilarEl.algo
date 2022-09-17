@@ -1,17 +1,29 @@
-ALGORITHM distinctElementsSum1
-VAR
-    sum,i,j:INTEGER:=0;
-    set1,set2: ARRAY_OF_INTEGER[50];
-BEGIN
-    set1=[3, 1, 7, 9];
-    set2=[2, 4, 1, 9, 3];
-    FOR i FROM 0 TO set1.length STEP 1  DO
-        FOR j FROM 0 TO set2.length STEP 1 DO
-            IF (set1[i] = set2[j]) THEN
-                sum := sum+set2[j];
-                break;
-            END_IF 
-        END_FOR
-        
-    END_FOR
-END
+ALGORITHM sumSimilarEl1
+	VAR
+	set1,set2: ARRAY_OF INTEGER[20];
+	n,m,i,j,sum:INTEGER;
+	present:BOOLEAN;
+	BEGIN
+	   set1:={3,1,7,9};
+	   set2:={2,4,1,9,3};
+	   n:=set1.length;
+	   m:=set2.length;
+                sum:=0;
+	   FOR i FROM 0 TO n DO
+ 		present:=false;
+		FOR j FROM 0 TO m DO
+		      IF(set1[i] = set2[j]) THEN
+		 	present:=true;
+			break;
+		      END_IF
+		END_FOR
+		IF(present=true) THEN
+ 		    sum:=sum+set1[i];
+		END_IF
+	   END_FOR
+
+             
+             Write(“sum of overlapping elements of the array is”,sum);
+
+	END
+
